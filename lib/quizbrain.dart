@@ -2,9 +2,14 @@ import 'question.dart';
 
 /// Holds the true or false questions and remembers which one is on screen.
 class QuizBrain {
+  /// Uses [questions] when they are given, otherwise the built in question bank.
+  QuizBrain({List<Question>? questions}) : _questionBank = questions ?? _defaultQuestions;
+
   /// Index of the question that is currently shown.
   int _questionNumber = 0;
-  final List<Question> _questionBank = [
+  final List<Question> _questionBank;
+
+  static final List<Question> _defaultQuestions = [
     Question('The wavelength of red light is shorter than that of blue light.',
         false),
     Question('Helium gives off a pungent odor.', false),
