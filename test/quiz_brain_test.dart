@@ -59,4 +59,10 @@ void main() {
     expect(question.questionText, 'Water is wet.');
     expect(question.answer, isTrue);
   });
+
+  test('uses the questions it is given', () {
+    final brain = QuizBrain(questions: [Question('Only one.', true)]);
+    expect(brain.getQuestionText(), 'Only one.');
+    expect(brain.isNotFinished(), isFalse);
+  });
 }
