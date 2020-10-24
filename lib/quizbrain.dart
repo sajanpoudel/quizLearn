@@ -40,6 +40,12 @@ class QuizBrain {
         true),
     Question('Silver is the most conductive of metals.', true),
   ];
+  /// How many questions the quiz has.
+  int get questionCount => _questionBank.length;
+
+  /// The number of the current question, starting at 1.
+  int get currentNumber => _questionNumber + 1;
+
   /// True while there is at least one more question after the current one.
   bool get _hasNextQuestion => _questionNumber < _questionBank.length - 1;
 
