@@ -65,4 +65,9 @@ void main() {
     expect(brain.getQuestionText(), 'Only one.');
     expect(brain.isNotFinished(), isFalse);
   });
+
+  test('counts the questions', () {
+    final brain = QuizBrain(questions: [Question('a', true), Question('b', false), Question('c', true)]);
+    expect(brain.questionCount, 3);
+  });
 }
