@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:quizzler/question.dart';
+import 'package:quizzler/question_bank.dart';
 import 'package:quizzler/quizbrain.dart';
 
 void main() {
@@ -87,8 +88,9 @@ void main() {
     expect(brain.currentNumber, 1);
   });
 
-  test('the built in quiz has fourteen questions', () {
-    expect(QuizBrain().questionCount, 14);
+  test('the built in quiz uses every question of the bank', () {
+    expect(QuizBrain().questionCount, defaultQuestions.length);
+    expect(defaultQuestions.length, greaterThanOrEqualTo(14));
   });
 
   test('reset with shuffle keeps every question and starts over', () {
