@@ -89,6 +89,7 @@ void main() {
     await tester.pump();
     await tester.tap(find.text('False'));
     await tester.pumpAndSettle();
-    expect(find.text('You answered 1 of 2 correctly (50%).'), findsOneWidget);
+    expect(find.textContaining('You answered 1 of 2 correctly (50%).'), findsOneWidget);
+    expect(find.textContaining('New best score!'), findsOneWidget);
   });
 }

@@ -45,6 +45,9 @@ class _QuizPageState extends State<QuizPage> {
   /// Number of correct answers in this run.
   int correctScore = 0;
 
+  /// The highest score of the runs played since the app was opened.
+  int bestScore = 0;
+
   /// Records whether [userAnswer] matches the current question, or shows the
   /// final score once the quiz is over.
   void checkAnswer(bool userAnswer) {
@@ -76,11 +79,14 @@ class _QuizPageState extends State<QuizPage> {
   void _showResult() {
     final total = quizBrain.questionCount;
     final percent = (correctScore * 100 / total).round();
+    final isNewBest = correctScore > bestScore;
+    if (isNewBest) bestScore = correctScore;
     Alert(
       context: context,
       type: percent >= passMark ? AlertType.success : AlertType.error,
       title: "SCORE : $correctScore",
-      desc: "You answered $correctScore of $total correctly ($percent%).",
+      desc: "You answered $correctScore of $total correctly ($percent%).\n"
+          "${isNewBest ? 'New best score!' : 'Best score: $bestScore'}",
       buttons: [
         DialogButton(
           onPressed: _restart,
