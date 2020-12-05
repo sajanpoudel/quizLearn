@@ -84,7 +84,11 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
-  Widget _buildAnswerButton({String label, Color color, bool answer}) {
+  Widget _buildAnswerButton({
+    required String label,
+    required Color color,
+    required bool answer,
+  }) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.all(15.0),
