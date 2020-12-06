@@ -47,7 +47,7 @@ void main() {
     expect(find.text('SCORE : 0'), findsOneWidget);
   });
 
-  testWidgets('restart goes back to the first question', (tester) async {
+  testWidgets('restart goes back to question one with a clean score', (tester) async {
     quizBrain = QuizBrain(questions: [Question('First.', true), Question('Second.', true)]);
     await tester.pumpWidget(const Quizzler());
     await tester.tap(find.text('True'));
@@ -56,7 +56,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('RESTART'));
     await tester.pumpAndSettle();
-    expect(find.text('First.'), findsOneWidget);
+    expect(find.text('Question 1 of 2'), findsOneWidget);
     expect(find.byIcon(Icons.check), findsNothing);
   });
 

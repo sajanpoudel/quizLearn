@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:quizzler/question.dart';
 import 'package:quizzler/quizbrain.dart';
@@ -87,5 +89,20 @@ void main() {
 
   test('the built in quiz has fourteen questions', () {
     expect(QuizBrain().questionCount, 14);
+  });
+
+  test('reset with shuffle keeps every question and starts over', () {
+    final texts = ['a', 'b', 'c', 'd', 'e', 'f'];
+    final brain = QuizBrain(questions: [for (final t in texts) Question(t, true)]);
+    brain.questionChange();
+    brain.reset(shuffle: true, random: Random(4));
+    expect(brain.currentNumber, 1);
+    final seen = <String>[];
+    for (var i = 0; i < texts.length; i++) {
+      seen.add(brain.getQuestionText());
+      brain.questionChange();
+    }
+    expect(seen.toSet(), texts.toSet());
+    expect(seen, isNot(texts));
   });
 }

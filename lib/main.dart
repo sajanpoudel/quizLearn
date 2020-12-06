@@ -63,7 +63,7 @@ class _QuizPageState extends State<QuizPage> {
             DialogButton(
               onPressed: () {
                 setState(() {
-                  quizBrain.reset();
+                  quizBrain.reset(shuffle: true);
                   scoreIcons = [];
                   correctScore = 0;
                   Navigator.pop(context);

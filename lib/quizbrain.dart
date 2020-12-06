@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'question.dart';
 import 'question_bank.dart';
 
@@ -43,7 +45,13 @@ class QuizBrain {
   }
 
   /// Starts the quiz again from the first question.
-  void reset() {
+  ///
+  /// With [shuffle] the questions are put in a new random order first. Pass a
+  /// seeded [random] to get a repeatable order.
+  void reset({bool shuffle = false, Random? random}) {
+    if (shuffle) {
+      _questionBank.shuffle(random);
+    }
     _questionNumber = 0;
   }
 }
