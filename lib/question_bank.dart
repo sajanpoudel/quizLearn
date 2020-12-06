@@ -72,3 +72,10 @@ final List<Question> defaultQuestions = [
   ...biologyQuestions,
   ...technologyQuestions,
 ];
+
+/// The topics a quiz can be limited to, with their questions.
+final Map<String, List<Question>> questionTopics = {
+  'Physics': physicsQuestions,
+  'Biology': biologyQuestions,
+  'Technology': technologyQuestions,
+};

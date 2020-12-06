@@ -70,19 +70,25 @@ void main() {
   });
 
   test('counts the questions', () {
-    final brain = QuizBrain(questions: [Question('a', true), Question('b', false), Question('c', true)]);
+    final brain = QuizBrain(questions: [
+      Question('a', true),
+      Question('b', false),
+      Question('c', true)
+    ]);
     expect(brain.questionCount, 3);
   });
 
   test('currentNumber starts at one and follows the questions', () {
-    final brain = QuizBrain(questions: [Question('a', true), Question('b', false)]);
+    final brain =
+        QuizBrain(questions: [Question('a', true), Question('b', false)]);
     expect(brain.currentNumber, 1);
     brain.questionChange();
     expect(brain.currentNumber, 2);
   });
 
   test('currentNumber goes back to one after a reset', () {
-    final brain = QuizBrain(questions: [Question('a', true), Question('b', false)]);
+    final brain =
+        QuizBrain(questions: [Question('a', true), Question('b', false)]);
     brain.questionChange();
     brain.reset();
     expect(brain.currentNumber, 1);
@@ -95,7 +101,8 @@ void main() {
 
   test('reset with shuffle keeps every question and starts over', () {
     final texts = ['a', 'b', 'c', 'd', 'e', 'f'];
-    final brain = QuizBrain(questions: [for (final t in texts) Question(t, true)]);
+    final brain =
+        QuizBrain(questions: [for (final t in texts) Question(t, true)]);
     brain.questionChange();
     brain.reset(shuffle: true, random: Random(4));
     expect(brain.currentNumber, 1);
@@ -106,5 +113,17 @@ void main() {
     }
     expect(seen.toSet(), texts.toSet());
     expect(seen, isNot(texts));
+  });
+
+  test('the topics together make up the whole bank', () {
+    final total =
+        questionTopics.values.fold<int>(0, (sum, list) => sum + list.length);
+    expect(total, defaultQuestions.length);
+    expect(questionTopics.keys, ['Physics', 'Biology', 'Technology']);
+  });
+
+  test('a quiz can be limited to one topic', () {
+    final brain = QuizBrain(questions: questionTopics['Technology']);
+    expect(brain.questionCount, technologyQuestions.length);
   });
 }
