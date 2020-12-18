@@ -70,4 +70,11 @@ void main() {
     final brain = QuizBrain(questions: [Question('a', true), Question('b', false), Question('c', true)]);
     expect(brain.questionCount, 3);
   });
+
+  test('currentNumber starts at one and follows the questions', () {
+    final brain = QuizBrain(questions: [Question('a', true), Question('b', false)]);
+    expect(brain.currentNumber, 1);
+    brain.questionChange();
+    expect(brain.currentNumber, 2);
+  });
 }
