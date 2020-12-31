@@ -92,9 +92,11 @@ class _QuizPageState extends State<QuizPage> {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.all(15.0),
-        child: FlatButton(
-          textColor: Colors.white,
-          color: color,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: color,
+          ),
           child: Text(
             label,
             style: TextStyle(
