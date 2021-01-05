@@ -5,6 +5,9 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 /// Holds the questions and tracks which one is currently shown.
 QuizBrain quizBrain = QuizBrain();
 
+/// Percentage of correct answers that turns the result dialog green.
+const int passMark = 60;
+
 void main() => runApp(const Quizzler());
 
 /// Root widget of the app: a dark page that hosts the quiz.
@@ -38,6 +41,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   /// One check or cross per answered question.
   List<Icon> scoreIcons = [];
+
   /// Number of correct answers in this run.
   int correctScore = 0;
 
@@ -53,31 +57,40 @@ class _QuizPageState extends State<QuizPage> {
         scoreIcons.add(Icon(Icons.close, color: Colors.red.shade300));
       }
       if (!quizBrain.isNotFinished()) {
-        Alert(
-          context: context,
-          type: AlertType.error,
-          title: "SCORE : $correctScore",
-          desc:
-              "You answered $correctScore of ${quizBrain.questionCount} correctly (${(correctScore * 100 / quizBrain.questionCount).round()}%).",
-          buttons: [
-            DialogButton(
-              onPressed: () {
-                setState(() {
-                  quizBrain.reset(shuffle: true);
-                  scoreIcons = [];
-                  correctScore = 0;
-                  Navigator.pop(context);
-                });
-              },
-              width: 120,
-              child: const Text(
-                "RESTART",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            )
-          ],
-        ).show();
+        _showResult();
       }
+    });
+  }
+
+  /// Opens the score dialog. Passing at least [passMark] percent counts as a good result.
+  void _showResult() {
+    final total = quizBrain.questionCount;
+    final percent = (correctScore * 100 / total).round();
+    Alert(
+      context: context,
+      type: percent >= passMark ? AlertType.success : AlertType.error,
+      title: "SCORE : $correctScore",
+      desc: "You answered $correctScore of $total correctly ($percent%).",
+      buttons: [
+        DialogButton(
+          onPressed: _restart,
+          width: 120,
+          child: const Text(
+            "RESTART",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
+  }
+
+  /// Closes the dialog and starts a new run with the questions reshuffled.
+  void _restart() {
+    setState(() {
+      quizBrain.reset(shuffle: true);
+      scoreIcons = [];
+      correctScore = 0;
+      Navigator.pop(context);
     });
   }
 
