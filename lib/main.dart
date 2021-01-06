@@ -144,6 +144,14 @@ class _QuizPageState extends State<QuizPage> {
             style: const TextStyle(fontSize: 16.0, color: Colors.white70),
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: LinearProgressIndicator(
+            value: scoreIcons.length / quizBrain.questionCount,
+            backgroundColor: Colors.white24,
+            color: Colors.lightGreen.shade600,
+          ),
+        ),
         Expanded(
           flex: 5,
           child: Padding(
