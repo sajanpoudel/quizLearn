@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:quizzler/main.dart';
 import 'package:quizzler/question.dart';
+import 'package:quizzler/question_bank.dart';
 import 'package:quizzler/quizbrain.dart';
 
 void main() {
@@ -91,5 +92,16 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.textContaining('You answered 1 of 2 correctly (50%).'), findsOneWidget);
     expect(find.textContaining('New best score!'), findsOneWidget);
+  });
+
+  testWidgets('choosing a topic restarts the quiz with its questions', (tester) async {
+    quizBrain = QuizBrain();
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('Technology'));
+    await tester.pump();
+    expect(find.text('Question 1 of ${technologyQuestions.length}'), findsOneWidget);
+    await tester.tap(find.text('Technology'));
+    await tester.pump();
+    expect(find.text('Question 1 of ${defaultQuestions.length}'), findsOneWidget);
   });
 }

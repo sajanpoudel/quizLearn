@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question_bank.dart';
 import 'quizbrain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -110,6 +111,41 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
+  /// The topic the quiz is limited to, or null for all questions.
+  String? topic;
+
+  /// Starts a new quiz with the questions of [chosen], or with every question when it is null.
+  void _chooseTopic(String? chosen) {
+    setState(() {
+      topic = chosen;
+      quizBrain = QuizBrain(
+        questions: chosen == null ? null : questionTopics[chosen],
+      );
+      scoreIcons = [];
+      correctScore = 0;
+    });
+  }
+
+  Widget _buildTopicChips() {
+    return SizedBox(
+      height: 44,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          for (final name in questionTopics.keys)
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: ChoiceChip(
+                label: Text(name),
+                selected: topic == name,
+                onSelected: (selected) => _chooseTopic(selected ? name : null),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
   /// Shows the next question and rebuilds the screen.
   void changeQuestion() {
     setState(() {
@@ -152,6 +188,7 @@ class _QuizPageState extends State<QuizPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        _buildTopicChips(),
         Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: Text(
