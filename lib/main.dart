@@ -137,7 +137,7 @@ class _QuizPageState extends State<QuizPage> {
         ),
         _buildAnswerButton(
           label: 'True',
-          color: Colors.lightGreen[600],
+          color: Colors.lightGreen.shade600,
           answer: true,
         ),
         _buildAnswerButton(
