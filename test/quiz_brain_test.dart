@@ -77,4 +77,11 @@ void main() {
     brain.questionChange();
     expect(brain.currentNumber, 2);
   });
+
+  test('currentNumber goes back to one after a reset', () {
+    final brain = QuizBrain(questions: [Question('a', true), Question('b', false)]);
+    brain.questionChange();
+    brain.reset();
+    expect(brain.currentNumber, 1);
+  });
 }
