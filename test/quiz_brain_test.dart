@@ -33,7 +33,7 @@ void main() {
       brain.questionChange();
       steps++;
     }
-    expect(steps, 13);
+    expect(steps, brain.questionCount - 1);
     expect(brain.isNotFinished(), isFalse);
   });
 

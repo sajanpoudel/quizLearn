@@ -36,4 +36,12 @@ final List<Question> defaultQuestions = [
       true),
   Question('Silver is the most conductive of metals.', true,
       explanation: 'Silver conducts electricity better than copper or gold.'),
+  Question('Light travels faster than sound.', true,
+      explanation:
+          'Light covers about 300,000 km each second, sound only about 343 m.'),
+  Question('Water boils at 90 degrees Celsius at sea level.', false,
+      explanation: 'Water boils at 100 degrees Celsius at sea level.'),
+  Question('Jupiter is the largest planet in the solar system.', true),
+  Question('Sound can travel through empty space.', false,
+      explanation: 'Sound needs a medium such as air or water to travel.'),
 ];
