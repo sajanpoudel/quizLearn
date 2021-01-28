@@ -142,7 +142,7 @@ class _QuizPageState extends State<QuizPage> {
         ),
         _buildAnswerButton(
           label: 'False',
-          color: Colors.red[300],
+          color: Colors.red.shade300,
           answer: false,
         ),
         Row(
