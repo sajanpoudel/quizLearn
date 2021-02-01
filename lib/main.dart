@@ -44,7 +44,7 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       if (quizBrain.isNotFinished()) {
         if (correctAnswer == userAnswer) {
-          scoreIcons.add(Icon(Icons.check, color: Colors.green[300]));
+          scoreIcons.add(Icon(Icons.check, color: Colors.green.shade300));
           correctScore++;
         } else {
           scoreIcons.add(Icon(Icons.close, color: Colors.red[300]));
