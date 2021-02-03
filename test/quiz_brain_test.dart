@@ -84,4 +84,8 @@ void main() {
     brain.reset();
     expect(brain.currentNumber, 1);
   });
+
+  test('the built in quiz has fourteen questions', () {
+    expect(QuizBrain().questionCount, 14);
+  });
 }
