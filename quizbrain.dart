@@ -2,7 +2,7 @@ import 'question.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
-  List<Question> _questionBank = [
+  final List<Question> _questionBank = [
     Question('The wavelength of red light is shorter than that of blue light.',
         false),
     Question('Helium gives off a pungent odor.', false),
