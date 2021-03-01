@@ -29,7 +29,7 @@ class QuizBrain {
         'Chocolate affects a dog\'s heart and nervous system; a few ounces are enough to kill a small dog.',
         true),
     Question(
-        'It takes 170,000 YEARS, on average, for a photon to travel from the centre of the sun to it\'s surface.',
+        'It takes 170,000 YEARS, on average, for a photon to travel from the centre of the sun to its surface.',
         true),
     Question('Silver is the most conductive of metals.', true),
   ];
