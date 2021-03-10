@@ -34,7 +34,7 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
     setState(() {
-      if (quizBrain.isNotFinished() == true) {
+      if (quizBrain.isNotFinished()) {
         if (correctAnswer == userAnswer) {
           scoreCheck.add(Icon(Icons.check, color: Colors.green[300]));
           correctScore++;
@@ -68,16 +68,6 @@ class _QuizPageState extends State<QuizPage> {
       }
     });
   }
-
-//   List <String> questions=[
-// 'You can lead  a cow down stairs but not up stairs.',
-// 'Approximately one quarter of human bones are in the feet.',
-// 'A slug\'s blood is green.'
-
-//   ];
-//   List <bool> answer = [
-//     false,true,true
-//   ];
 
   void changeQuestion() {
     setState(() {
