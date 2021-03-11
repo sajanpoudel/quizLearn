@@ -29,17 +29,17 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Icon> scoreCheck = [];
+  List<Icon> scoreIcons = [];
   int correctScore = 0;
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
     setState(() {
       if (quizBrain.isNotFinished()) {
         if (correctAnswer == userAnswer) {
-          scoreCheck.add(Icon(Icons.check, color: Colors.green[300]));
+          scoreIcons.add(Icon(Icons.check, color: Colors.green[300]));
           correctScore++;
         } else {
-          scoreCheck.add(Icon(Icons.close, color: Colors.red[300]));
+          scoreIcons.add(Icon(Icons.close, color: Colors.red[300]));
         }
       } else {
         Alert(
@@ -56,7 +56,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   quizBrain.reset();
-                  scoreCheck = [];
+                  scoreIcons = [];
                   correctScore = 0;
                   Navigator.pop(context);
                 });
@@ -139,7 +139,7 @@ class _QuizPageState extends State<QuizPage> {
           ),
         ),
         Row(
-          children: scoreCheck,
+          children: scoreIcons,
         )
       ],
     );
