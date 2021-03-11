@@ -75,6 +75,29 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
+  Widget _buildAnswerButton({String label, Color color, bool answer}) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.all(15.0),
+        child: FlatButton(
+          textColor: Colors.white,
+          color: color,
+          child: Text(
+            label,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20.0,
+            ),
+          ),
+          onPressed: () {
+            checkAnswer(answer);
+            changeQuestion();
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -97,46 +120,15 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.lightGreen[600],
-              child: Text(
-                'True',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                ),
-              ),
-              onPressed: () {
-                checkAnswer(true);
-                changeQuestion();
-                //The user picked true.
-              },
-            ),
-          ),
+        _buildAnswerButton(
+          label: 'True',
+          color: Colors.lightGreen[600],
+          answer: true,
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              color: Colors.red[300],
-              child: Text(
-                'False',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white,
-                ),
-              ),
-              onPressed: () {
-                checkAnswer(false);
-                //The user picked false.
-                changeQuestion();
-              },
-            ),
-          ),
+        _buildAnswerButton(
+          label: 'False',
+          color: Colors.red[300],
+          answer: false,
         ),
         Row(
           children: scoreIcons,
