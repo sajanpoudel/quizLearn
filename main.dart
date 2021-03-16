@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'quizbrain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+/// Holds the questions and tracks which one is currently shown.
 QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
@@ -31,6 +32,9 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreIcons = [];
   int correctScore = 0;
+
+  /// Records whether [userAnswer] matches the current question, or shows the
+  /// final score once the quiz is over.
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
     setState(() {
