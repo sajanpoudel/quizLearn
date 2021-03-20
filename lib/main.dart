@@ -46,14 +46,13 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
     setState(() {
-      if (quizBrain.isNotFinished()) {
-        if (correctAnswer == userAnswer) {
-          scoreIcons.add(Icon(Icons.check, color: Colors.green.shade300));
-          correctScore++;
-        } else {
-          scoreIcons.add(Icon(Icons.close, color: Colors.red.shade300));
-        }
+      if (correctAnswer == userAnswer) {
+        scoreIcons.add(Icon(Icons.check, color: Colors.green.shade300));
+        correctScore++;
       } else {
+        scoreIcons.add(Icon(Icons.close, color: Colors.red.shade300));
+      }
+      if (!quizBrain.isNotFinished()) {
         Alert(
           context: context,
           type: AlertType.error,
