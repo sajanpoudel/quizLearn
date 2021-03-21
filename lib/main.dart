@@ -47,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
           scoreIcons.add(Icon(Icons.check, color: Colors.green.shade300));
           correctScore++;
         } else {
-          scoreIcons.add(Icon(Icons.close, color: Colors.red[300]));
+          scoreIcons.add(Icon(Icons.close, color: Colors.red.shade300));
         }
       } else {
         Alert(
