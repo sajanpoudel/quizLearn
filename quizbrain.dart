@@ -1,5 +1,6 @@
 import 'question.dart';
 
+/// Holds the true or false questions and remembers which one is on screen.
 class QuizBrain {
   int _questionNumber = 0;
   final List<Question> _questionBank = [
