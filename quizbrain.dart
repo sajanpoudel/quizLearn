@@ -35,6 +35,7 @@ class QuizBrain {
         true),
     Question('Silver is the most conductive of metals.', true),
   ];
+  /// True while there is at least one more question after the current one.
   bool get _hasNextQuestion => _questionNumber < _questionBank.length - 1;
 
   void questionChange() {
