@@ -2,6 +2,7 @@ import 'question.dart';
 
 /// Holds the true or false questions and remembers which one is on screen.
 class QuizBrain {
+  /// Index of the question that is currently shown.
   int _questionNumber = 0;
   final List<Question> _questionBank = [
     Question('The wavelength of red light is shorter than that of blue light.',
