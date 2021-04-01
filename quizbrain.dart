@@ -38,6 +38,7 @@ class QuizBrain {
   /// True while there is at least one more question after the current one.
   bool get _hasNextQuestion => _questionNumber < _questionBank.length - 1;
 
+  /// Moves to the next question, or stays on the last one.
   void questionChange() {
     if (_hasNextQuestion) {
       _questionNumber++;
