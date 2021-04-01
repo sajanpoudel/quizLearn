@@ -45,6 +45,7 @@ class QuizBrain {
     }
   }
 
+  /// The text of the current question.
   String getQuestionText() {
     return _questionBank[_questionNumber].questionText;
   }
