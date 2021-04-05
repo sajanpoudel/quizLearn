@@ -50,6 +50,7 @@ class QuizBrain {
     return _questionBank[_questionNumber].questionText;
   }
 
+  /// The correct answer of the current question.
   bool getAnswer() {
     return _questionBank[_questionNumber].answer;
   }
