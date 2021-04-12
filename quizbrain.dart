@@ -55,6 +55,7 @@ class QuizBrain {
     return _questionBank[_questionNumber].answer;
   }
 
+  /// False once the last question is reached, which is when the score is shown.
   bool isNotFinished() {
     return _hasNextQuestion;
   }
