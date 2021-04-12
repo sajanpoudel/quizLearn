@@ -60,6 +60,7 @@ class QuizBrain {
     return _hasNextQuestion;
   }
 
+  /// Starts the quiz again from the first question.
   void reset() {
     _questionNumber = 0;
   }
