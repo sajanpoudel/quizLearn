@@ -25,6 +25,7 @@ class Quizzler extends StatelessWidget {
   }
 }
 
+/// The quiz screen with the question, the two answer buttons and the score row.
 class QuizPage extends StatefulWidget {
   @override
   _QuizPageState createState() => _QuizPageState();
