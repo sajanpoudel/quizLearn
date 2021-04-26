@@ -7,6 +7,7 @@ QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
 
+/// Root widget of the app: a dark page that hosts the quiz.
 class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
