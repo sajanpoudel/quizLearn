@@ -34,6 +34,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   /// One check or cross per answered question.
   List<Icon> scoreIcons = [];
+  /// Number of correct answers in this run.
   int correctScore = 0;
 
   /// Records whether [userAnswer] matches the current question, or shows the
