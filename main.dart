@@ -77,6 +77,7 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
+  /// Shows the next question and rebuilds the screen.
   void changeQuestion() {
     setState(() {
       quizBrain.questionChange();
