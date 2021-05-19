@@ -15,3 +15,7 @@ flutter run
 - `main.dart` holds the UI and the answer handling.
 - `quizbrain.dart` keeps the question bank and the current position.
 - `question.dart` is the small model for one question and its answer.
+
+## Questions
+
+The questions live in `QuizBrain` in `quizbrain.dart`. To add one, append `Question('Your statement.', true)` to the `_questionBank` list. The quiz ends after the last question and the player can restart from the score dialog.
