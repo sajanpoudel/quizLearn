@@ -38,4 +38,12 @@ void main() {
     expect(find.textContaining('wavelength of red light'), findsNothing);
     expect(find.textContaining('pungent odor'), findsOneWidget);
   });
+
+  testWidgets('a wrong last answer is not counted', (tester) async {
+    quizBrain = QuizBrain(questions: [Question('Only one.', true)]);
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('False'));
+    await tester.pumpAndSettle();
+    expect(find.text('SCORE : 0'), findsOneWidget);
+  });
 }
