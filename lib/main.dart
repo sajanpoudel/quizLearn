@@ -9,6 +9,8 @@ void main() => runApp(Quizzler());
 
 /// Root widget of the app: a dark page that hosts the quiz.
 class Quizzler extends StatelessWidget {
+  const Quizzler({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,6 +29,8 @@ class Quizzler extends StatelessWidget {
 
 /// The quiz screen with the question, the two answer buttons and the score row.
 class QuizPage extends StatefulWidget {
+  const QuizPage({super.key});
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
