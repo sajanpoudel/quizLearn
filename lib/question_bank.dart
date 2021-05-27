@@ -4,9 +4,11 @@ import 'question.dart';
 final List<Question> defaultQuestions = [
   Question(
       'The wavelength of red light is shorter than that of blue light.', false),
-  Question('Helium gives off a pungent odor.', false),
+  Question('Helium gives off a pungent odor.', false,
+      explanation: 'Helium has no smell at all.'),
   Question('Approximately one quarter of human bones are in the feet.', true),
-  Question('A slug\'s blood is green.', true),
+  Question('A slug\'s blood is green.', true,
+      explanation: 'Slugs have a copper based blood pigment that looks green.'),
   Question(
       'The small intestine is about three-and-a-half times the length of your body.',
       true),
@@ -23,12 +25,15 @@ final List<Question> defaultQuestions = [
   Question(
       'The total surface area of two human lungs is approximately 70 square metres.',
       true),
-  Question('Google was originally called "Backrub".', true),
+  Question('Google was originally called "Backrub".', true,
+      explanation:
+          'The search engine started as the Backrub project at Stanford.'),
   Question(
       'Chocolate affects a dog\'s heart and nervous system; a few ounces are enough to kill a small dog.',
       true),
   Question(
       'It takes 170,000 YEARS, on average, for a photon to travel from the centre of the sun to its surface.',
       true),
-  Question('Silver is the most conductive of metals.', true),
+  Question('Silver is the most conductive of metals.', true,
+      explanation: 'Silver conducts electricity better than copper or gold.'),
 ];
