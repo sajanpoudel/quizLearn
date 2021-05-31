@@ -14,12 +14,16 @@ flutter run
 
 - `main.dart` holds the UI and the answer handling.
 - `quizbrain.dart` keeps the current position in the quiz.
-- `question_bank.dart` holds the built in questions.
+- `question_bank.dart` holds the built in questions, grouped into physics, biology and technology.
 - `question.dart` is the small model for one question and its answer.
 
 ## Questions
 
 The questions live in `question_bank.dart`. To add one, append `Question('Your statement.', true)` to the `defaultQuestions` list. The quiz ends after the last question and the player can restart from the score dialog.
+
+## Topics
+
+The chips above the question limit the quiz to one topic. Add a new question to the list of its topic in `question_bank.dart`, or add a new list and register it in `questionTopics`.
 
 ## Explanations
 
