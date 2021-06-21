@@ -5,7 +5,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 /// Holds the questions and tracks which one is currently shown.
 QuizBrain quizBrain = QuizBrain();
 
-void main() => runApp(Quizzler());
+void main() => runApp(const Quizzler());
 
 /// Root widget of the app: a dark page that hosts the quiz.
 class Quizzler extends StatelessWidget {
@@ -16,10 +16,10 @@ class Quizzler extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.grey.shade800,
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: QuizPage(),
+        body: const SafeArea(
+          child: const Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: const QuizPage(),
           ),
         ),
       ),
@@ -61,9 +61,9 @@ class _QuizPageState extends State<QuizPage> {
           desc: "You have completed the quiz.",
           buttons: [
             DialogButton(
-              child: Text(
+              child: const Text(
                 "RESTART",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
               onPressed: () {
                 setState(() {
@@ -95,7 +95,7 @@ class _QuizPageState extends State<QuizPage> {
   }) {
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: TextButton(
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
@@ -103,7 +103,7 @@ class _QuizPageState extends State<QuizPage> {
           ),
           child: Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 20.0,
             ),
@@ -126,12 +126,12 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
                 quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 25.0,
                   color: Colors.white,
                 ),
