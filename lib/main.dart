@@ -61,10 +61,6 @@ class _QuizPageState extends State<QuizPage> {
           desc: "You have completed the quiz.",
           buttons: [
             DialogButton(
-              child: const Text(
-                "RESTART",
-                style: const TextStyle(color: Colors.white, fontSize: 20),
-              ),
               onPressed: () {
                 setState(() {
                   quizBrain.reset();
@@ -74,6 +70,10 @@ class _QuizPageState extends State<QuizPage> {
                 });
               },
               width: 120,
+              child: const Text(
+                "RESTART",
+                style: const TextStyle(color: Colors.white, fontSize: 20),
+              ),
             )
           ],
         ).show();
