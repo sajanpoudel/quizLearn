@@ -59,4 +59,12 @@ void main() {
     expect(find.text('First.'), findsOneWidget);
     expect(find.byIcon(Icons.check), findsNothing);
   });
+
+  testWidgets('the last answer counts towards the score', (tester) async {
+    quizBrain = QuizBrain(questions: [Question('Only one.', true)]);
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('True'));
+    await tester.pumpAndSettle();
+    expect(find.text('SCORE : 1'), findsOneWidget);
+  });
 }
