@@ -17,9 +17,9 @@ class Quizzler extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey.shade800,
         body: const SafeArea(
-          child: const Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: const QuizPage(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: QuizPage(),
           ),
         ),
       ),
@@ -72,7 +72,7 @@ class _QuizPageState extends State<QuizPage> {
               width: 120,
               child: const Text(
                 "RESTART",
-                style: const TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             )
           ],
