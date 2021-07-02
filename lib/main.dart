@@ -122,6 +122,14 @@ class _QuizPageState extends State<QuizPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            'Question ${quizBrain.currentNumber} of ${quizBrain.questionCount}',
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 16.0, color: Colors.white70),
+          ),
+        ),
         Expanded(
           flex: 5,
           child: Padding(
