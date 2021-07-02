@@ -32,7 +32,7 @@ class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
 
   @override
-  _QuizPageState createState() => _QuizPageState();
+  State<QuizPage> createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
