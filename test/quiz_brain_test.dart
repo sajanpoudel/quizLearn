@@ -7,4 +7,8 @@ void main() {
     final brain = QuizBrain();
     expect(brain.getQuestionText(), startsWith('The wavelength of red light'));
   });
+
+  test('the first answer is false', () {
+    expect(QuizBrain().getAnswer(), isFalse);
+  });
 }
