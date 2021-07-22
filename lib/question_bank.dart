@@ -44,4 +44,9 @@ final List<Question> defaultQuestions = [
   Question('Jupiter is the largest planet in the solar system.', true),
   Question('Sound can travel through empty space.', false,
       explanation: 'Sound needs a medium such as air or water to travel.'),
+  Question('Humans have four lungs.', false,
+      explanation: 'People have two lungs, a left and a right one.'),
+  Question('The heart pumps blood through the whole body.', true),
+  Question('Plants release oxygen during photosynthesis.', true),
+  Question('An adult human has 206 bones.', true),
 ];
