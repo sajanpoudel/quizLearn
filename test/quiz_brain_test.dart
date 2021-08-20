@@ -11,4 +11,11 @@ void main() {
   test('the first answer is false', () {
     expect(QuizBrain().getAnswer(), isFalse);
   });
+
+  test('questionChange moves to the next question', () {
+    final brain = QuizBrain();
+    final first = brain.getQuestionText();
+    brain.questionChange();
+    expect(brain.getQuestionText(), isNot(first));
+  });
 }
