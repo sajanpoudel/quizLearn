@@ -67,4 +67,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('SCORE : 1'), findsOneWidget);
   });
+
+  testWidgets('shows the progress of the quiz', (tester) async {
+    quizBrain = QuizBrain(questions: [Question('First.', true), Question('Second.', true)]);
+    await tester.pumpWidget(const Quizzler());
+    expect(find.text('Question 1 of 2'), findsOneWidget);
+  });
 }
