@@ -39,6 +39,11 @@ class QuizBrain {
     return _questionBank[_questionNumber].answer;
   }
 
+  /// The note that explains the current answer, or null when there is none.
+  String? getExplanation() {
+    return _questionBank[_questionNumber].explanation;
+  }
+
   /// False once the last question is reached, which is when the score is shown.
   bool isNotFinished() {
     return _hasNextQuestion;

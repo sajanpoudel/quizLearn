@@ -49,17 +49,27 @@ class _QuizPageState extends State<QuizPage> {
   /// final score once the quiz is over.
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
+    final explanation = quizBrain.getExplanation();
     setState(() {
       if (correctAnswer == userAnswer) {
         scoreIcons.add(Icon(Icons.check, color: Colors.green.shade300));
         correctScore++;
       } else {
         scoreIcons.add(Icon(Icons.close, color: Colors.red.shade300));
+        _showExplanation(explanation);
       }
       if (!quizBrain.isNotFinished()) {
         _showResult();
       }
     });
+  }
+
+  /// Tells the player why the answer was wrong, when the question has a note.
+  void _showExplanation(String? explanation) {
+    if (explanation == null) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(explanation)));
   }
 
   /// Opens the score dialog. Passing at least [passMark] percent counts as a good result.
