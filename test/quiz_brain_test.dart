@@ -18,4 +18,8 @@ void main() {
     brain.questionChange();
     expect(brain.getQuestionText(), isNot(first));
   });
+
+  test('isNotFinished is true at the start', () {
+    expect(QuizBrain().isNotFinished(), isTrue);
+  });
 }
