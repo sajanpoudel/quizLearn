@@ -49,4 +49,10 @@ final List<Question> defaultQuestions = [
   Question('The heart pumps blood through the whole body.', true),
   Question('Plants release oxygen during photosynthesis.', true),
   Question('An adult human has 206 bones.', true),
+  Question('HTML is a programming language.', false,
+      explanation:
+          'HTML is a markup language that describes the structure of a page.'),
+  Question('One kilobyte is 1024 bytes in the binary system.', true),
+  Question('The first computer mouse was made of wood.', true,
+      explanation: 'Douglas Engelbart built it in 1964 with a wooden shell.'),
 ];
