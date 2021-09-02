@@ -22,4 +22,15 @@ void main() {
   test('isNotFinished is true at the start', () {
     expect(QuizBrain().isNotFinished(), isTrue);
   });
+
+  test('the quiz finishes on the last question', () {
+    final brain = QuizBrain();
+    var steps = 0;
+    while (brain.isNotFinished()) {
+      brain.questionChange();
+      steps++;
+    }
+    expect(steps, 13);
+    expect(brain.isNotFinished(), isFalse);
+  });
 }
