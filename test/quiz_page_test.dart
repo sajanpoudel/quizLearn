@@ -73,4 +73,12 @@ void main() {
     await tester.pumpWidget(const Quizzler());
     expect(find.text('Question 1 of 2'), findsOneWidget);
   });
+
+  testWidgets('the progress moves on after an answer', (tester) async {
+    quizBrain = QuizBrain(questions: [Question('First.', true), Question('Second.', true)]);
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('True'));
+    await tester.pump();
+    expect(find.text('Question 2 of 2'), findsOneWidget);
+  });
 }
