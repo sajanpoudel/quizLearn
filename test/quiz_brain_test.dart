@@ -33,4 +33,14 @@ void main() {
     expect(steps, 13);
     expect(brain.isNotFinished(), isFalse);
   });
+
+  test('questionChange stays on the last question', () {
+    final brain = QuizBrain();
+    for (var i = 0; i < 40; i++) {
+      brain.questionChange();
+    }
+    final last = brain.getQuestionText();
+    brain.questionChange();
+    expect(brain.getQuestionText(), last);
+  });
 }
