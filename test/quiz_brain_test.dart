@@ -43,4 +43,14 @@ void main() {
     brain.questionChange();
     expect(brain.getQuestionText(), last);
   });
+
+  test('reset returns to the first question', () {
+    final brain = QuizBrain();
+    final first = brain.getQuestionText();
+    brain.questionChange();
+    brain.questionChange();
+    brain.reset();
+    expect(brain.getQuestionText(), first);
+    expect(brain.isNotFinished(), isTrue);
+  });
 }
