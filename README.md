@@ -19,7 +19,7 @@ flutter run
 
 ## Questions
 
-The questions live in `question_bank.dart`. To add one, append `Question('Your statement.', true)` to the `defaultQuestions` list. The quiz ends after the last question and the player can restart from the score dialog.
+The questions live in `question_bank.dart`. To add one, append `Question('Your statement.', true)` to one of the topic lists (`physicsQuestions`, `biologyQuestions` or `technologyQuestions`). The quiz ends after the last question and the player can restart from the score dialog.
 
 ## Topics
 
