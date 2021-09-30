@@ -53,4 +53,10 @@ void main() {
     expect(brain.getQuestionText(), first);
     expect(brain.isNotFinished(), isTrue);
   });
+
+  test('Question keeps its text and answer', () {
+    final question = Question('Water is wet.', true);
+    expect(question.questionText, 'Water is wet.');
+    expect(question.answer, isTrue);
+  });
 }
