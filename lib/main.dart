@@ -57,7 +57,8 @@ class _QuizPageState extends State<QuizPage> {
           context: context,
           type: AlertType.error,
           title: "SCORE : $correctScore",
-          desc: "You have completed the quiz.",
+          desc:
+              "You answered $correctScore of ${quizBrain.questionCount} correctly (${(correctScore * 100 / quizBrain.questionCount).round()}%).",
           buttons: [
             DialogButton(
               onPressed: () {
