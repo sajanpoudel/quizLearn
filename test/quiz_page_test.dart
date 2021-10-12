@@ -14,4 +14,12 @@ void main() {
     expect(find.text('True'), findsOneWidget);
     expect(find.text('False'), findsOneWidget);
   });
+
+  testWidgets('a correct answer adds a check mark', (tester) async {
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('False'));
+    await tester.pump();
+    expect(find.byIcon(Icons.check), findsOneWidget);
+    expect(find.byIcon(Icons.close), findsNothing);
+  });
 }
