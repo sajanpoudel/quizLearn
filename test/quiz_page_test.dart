@@ -22,4 +22,11 @@ void main() {
     expect(find.byIcon(Icons.check), findsOneWidget);
     expect(find.byIcon(Icons.close), findsNothing);
   });
+
+  testWidgets('a wrong answer adds a cross', (tester) async {
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('True'));
+    await tester.pump();
+    expect(find.byIcon(Icons.close), findsOneWidget);
+  });
 }
