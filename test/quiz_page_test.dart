@@ -29,4 +29,12 @@ void main() {
     await tester.pump();
     expect(find.byIcon(Icons.close), findsOneWidget);
   });
+
+  testWidgets('answering moves to the next question', (tester) async {
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('False'));
+    await tester.pump();
+    expect(find.textContaining('wavelength of red light'), findsNothing);
+    expect(find.textContaining('pungent odor'), findsOneWidget);
+  });
 }
