@@ -19,3 +19,11 @@ flutter run
 ## Questions
 
 The questions live in `QuizBrain` in `quizbrain.dart`. To add one, append `Question('Your statement.', true)` to the `_questionBank` list. The quiz ends after the last question and the player can restart from the score dialog.
+
+## Tests
+
+```
+flutter test
+```
+
+The tests cover `QuizBrain` (question order, finishing, reset) and the quiz page (answer buttons, score icons).
