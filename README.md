@@ -27,3 +27,7 @@ flutter test
 ```
 
 The tests cover `QuizBrain` (question order, finishing, reset) and the quiz page (answer buttons, score icons).
+
+## Project layout
+
+The Dart sources live in `lib/`, the tests in `test/`. Run `flutter create .` once if you need the Android and iOS runner folders.
