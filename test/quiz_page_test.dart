@@ -81,4 +81,14 @@ void main() {
     await tester.pump();
     expect(find.text('Question 2 of 2'), findsOneWidget);
   });
+
+  testWidgets('the result shows the percentage', (tester) async {
+    quizBrain = QuizBrain(questions: [Question('First.', true), Question('Second.', true)]);
+    await tester.pumpWidget(const Quizzler());
+    await tester.tap(find.text('True'));
+    await tester.pump();
+    await tester.tap(find.text('False'));
+    await tester.pumpAndSettle();
+    expect(find.text('You answered 1 of 2 correctly (50%).'), findsOneWidget);
+  });
 }
