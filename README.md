@@ -21,6 +21,10 @@ flutter run
 
 The questions live in `question_bank.dart`. To add one, append `Question('Your statement.', true)` to the `defaultQuestions` list. The quiz ends after the last question and the player can restart from the score dialog.
 
+## Explanations
+
+A question can carry a short note: `Question('Statement.', true, explanation: 'Why it is true.')`. The note appears at the bottom of the screen after a wrong answer.
+
 ## Tests
 
 ```
